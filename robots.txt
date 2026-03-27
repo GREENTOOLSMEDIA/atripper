@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atripper.com/sitemap.xml
+Sitemap: https://atripper.com/sitemap-images.xml

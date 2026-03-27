@@ -1,0 +1,177 @@
+<!-- footer.html (FINAL - versión sin www) -->
+<footer class="footer-global">
+  <div class="footer-line">
+
+    <!-- Social icons -->
+    <div class="footer-row social-icons">
+
+      <a href="https://x.com/atripper2030" target="_blank" rel="noopener noreferrer">
+        <img src="/svg/atripper_x.svg" alt="ATRIPPER on X" />
+      </a>
+
+      <a href="https://www.youtube.com/@atripper" target="_blank" rel="noopener noreferrer">
+        <img src="/svg/atripper_youtube.svg" alt="ATRIPPER YouTube" />
+      </a>
+
+      <a href="https://www.instagram.com/atripper2030" target="_blank" rel="noopener noreferrer">
+        <img src="/svg/atripper_instagram.svg" alt="ATRIPPER Instagram" />
+      </a>
+
+      <a href="https://www.fanvue.com/atripper" target="_blank" rel="noopener noreferrer">
+        <img src="/svg/atripper_fanvue.svg" alt="ATRIPPER Fanvue" />
+      </a>
+
+    </div>
+
+    <!-- Text row -->
+    <div class="footer-row footer-links">
+      <a href="/">ATRIPPER® — A journey into limitless beauty | Digital art project | Santiago, Chile</a>
+      <a href="mailto:atripper.studio@gmail.com?subject=ATRIPPER%20Contact">| Contact</a>
+    </div>
+
+    <!-- AI Statement -->
+    <div class="footer-row nota-seo">
+      <p>
+        ATRIPPER is a digital art project developed using artificial intelligence under human supervision.
+        All images, characters, and representations are digitally generated and do not depict real individuals.
+      </p>
+    </div>
+
+    <!-- 18+ Notice -->
+    <div class="footer-row legal-row">
+      <p>
+        This website contains artistic visual content intended for mature audiences (18+).
+        By accessing this site, the user confirms that they meet the legal age requirement in their jurisdiction.
+      </p>
+    </div>
+
+<!-- Terms + Privacy + Usage -->
+<div class="footer-row uso-contenido legal-row">
+  <p>
+    <strong>Terms, Privacy and Content Usage:</strong>
+    ATRIPPER presents artistic visual content generated through artificial intelligence and does not represent real individuals.
+    Access is restricted to users over 18 years of age, and it is the user's responsibility to comply with applicable laws in their country.
+    Content may be shared on social media with proper attribution to ATRIPPER. Any commercial use, mass reproduction,
+    or corporate exploitation without explicit authorization is strictly prohibited. All content, including images, design,
+    and narrative elements, is the intellectual property of ATRIPPER and its creative direction.
+    This site does not directly collect sensitive personal data, but may use basic cookies or analytics tools to improve user experience.
+    ATRIPPER is not responsible for misuse of its content or for the content and policies of external linked services.
+    This site operates under the laws of Chile.
+  </p>
+</div>
+
+<!-- ALARSI Signature -->
+<div class="footer-row text-center py-4">
+  <a href="https://alarsi.com" target="_blank" rel="noopener noreferrer">
+    Powered by ALARSI
+  </a>
+</div>
+
+</div>
+</footer>
+
+<style>
+/* ========================================= */
+/* FOOTER GENERAL */
+/* ========================================= */
+.footer-global {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  padding: 30px 20px;
+  text-align: center;
+  background: transparent;
+}
+.footer-global a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-global a:hover {
+  color: white;
+}
+.footer-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+}
+/* ========================================= */
+/* LINKS ROW */
+/* ========================================= */
+.footer-links {
+  gap: 8px;
+}
+.footer-links a {
+  white-space: nowrap;
+}
+/* ========================================= */
+/* ÍCONOS SOCIALES */
+/* ========================================= */
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  margin: 0 6px;
+  filter: grayscale(100%) brightness(0.7);
+  transition: filter 0.3s ease;
+}
+.social-icons a:hover img {
+  filter: none;
+}
+/* ========================================= */
+/* TEXTOS LARGOS DEL FOOTER */
+/* ========================================= */
+.legal-row,
+.nota-seo,
+.uso-contenido {
+  display: block;
+  max-width: 800px;
+}
+.footer-row p,
+.footer-row span {
+  font-size: 9pt;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px 0;
+  display: block;
+}
+/* Separador elegante */
+.footer-row.uso-contenido p {
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+@media (max-width: 750px) {
+  .footer-global {
+    font-size: 11pt;
+    padding: 40px 16px;
+  }
+  .footer-row {
+    gap: 8px;
+  }
+  .footer-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .footer-row p,
+  .footer-row span {
+    font-size: 11pt;
+  }
+}
+</style>

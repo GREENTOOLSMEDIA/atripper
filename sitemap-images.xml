@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- HOME -->
+  <url>
+    <loc>https://atripper.com/</loc>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper-pauai-vikai.jpg</image:loc>
+      <image:title>ATRIPPER editorial visual universe</image:title>
+      <image:caption>Main image of ATRIPPER featuring PauAi and VikAi in an editorial visual composition</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/pauai-close-up-face.jpg</image:loc>
+      <image:title>PauAi close-up portrait</image:title>
+      <image:caption>Close-up portrait of PauAi, a blonde woman with blue eyes and a soft luminous expression</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/vikai-close-up-face.jpg</image:loc>
+      <image:title>VikAi close-up portrait</image:title>
+      <image:caption>Close-up portrait of VikAi, a brunette woman with an intense editorial gaze</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_01.jpg</image:loc>
+      <image:title>ATRIPPER Ethereal Portrait</image:title>
+      <image:caption>Close-up portrait of a blonde woman with blue eyes, luminous skin, and soft wavy hair</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_02.jpg</image:loc>
+      <image:title>ATRIPPER Angel in Red</image:title>
+      <image:caption>Blonde woman with pink wings wearing red lingerie in a soft editorial fantasy setting</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_03.jpg</image:loc>
+      <image:title>ATRIPPER Modern Cupid</image:title>
+      <image:caption>Brunette woman with pink wings holding a cupid arrow in a glossy red dress</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_04.jpg</image:loc>
+      <image:title>ATRIPPER Celestial Fantasy</image:title>
+      <image:caption>Brunette woman with pink wings seated gracefully in a stylized editorial composition</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_05.jpg</image:loc>
+      <image:title>ATRIPPER Dual Reflection</image:title>
+      <image:caption>Two women with pink wings in a mirrored composition wearing red outfits</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_06.jpg</image:loc>
+      <image:title>ATRIPPER Soft Presence</image:title>
+      <image:caption>Close-up portrait of a brunette woman with flowing hair and soft lighting</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_07.jpg</image:loc>
+      <image:title>ATRIPPER Night Lounge</image:title>
+      <image:caption>Two women in a neon-lit lounge, one holding a camera, in a cinematic nightlife setting</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_08.jpg</image:loc>
+      <image:title>ATRIPPER Night Energy</image:title>
+      <image:caption>Two women in black outfits seated on a red leather sofa in a neon-lit club environment</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_09.jpg</image:loc>
+      <image:title>ATRIPPER Summer Motion</image:title>
+      <image:caption>Two women standing in a desert landscape at sunset with warm natural light</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_10.jpg</image:loc>
+      <image:title>ATRIPPER Shadow Frame</image:title>
+      <image:caption>Woman standing in a dimly lit interior in a moody cinematic composition</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_11.jpg</image:loc>
+      <image:title>ATRIPPER Pool Moment</image:title>
+      <image:caption>Blonde woman in a swimming pool with turquoise water in a bright tropical setting</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_12.jpg</image:loc>
+      <image:title>ATRIPPER Red Horizon</image:title>
+      <image:caption>Woman reclining on a car hood in a desert environment in a bold editorial composition</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ABOUT -->
+  <url>
+    <loc>https://atripper.com/about.html</loc>
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_07.jpg</image:loc>
+      <image:title>ATRIPPER About visual identity</image:title>
+      <image:caption>PauAi and VikAi in a cinematic editorial scene inside the ATRIPPER visual universe</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PAUAI -->
+  <url>
+    <loc>https://atripper.com/pauai.html</loc>
+    <image:image>
+      <image:loc>https://atripper.com/images/pauai-close-up-face.jpg</image:loc>
+      <image:title>PauAi portrait</image:title>
+      <image:caption>Close-up editorial portrait of PauAi with blonde hair, blue eyes, and a soft luminous expression</image:caption>
+    </image:image>
+  </url>
+
+  <!-- VIKAI -->
+  <url>
+    <loc>https://atripper.com/vikai.html</loc>
+    <image:image>
+      <image:loc>https://atripper.com/images/vikai-close-up-face.jpg</image:loc>
+      <image:title>VikAi portrait</image:title>
+      <image:caption>Close-up editorial portrait of VikAi with dark hair, green eyes, and an intense magnetic expression</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 404 -->
+  <url>
+    <loc>https://atripper.com/404.html</loc>
+    <image:image>
+      <image:loc>https://atripper.com/images/atripper_05.jpg</image:loc>
+      <image:title>ATRIPPER visual composition</image:title>
+      <image:caption>Two women with pink wings in a stylized mirrored editorial fantasy scene</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

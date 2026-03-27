@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found | ATRIPPER | A journey into limitless beauty</title>
+  <meta name="description" content="The page you are looking for does not exist. Return to ATRIPPER and continue your journey into limitless beauty." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#000000" />
+  
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://atripper.com/404.html" />
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/favicon.ico" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="ATRIPPER" />
+  <meta property="og:title" content="Page not found | ATRIPPER" />
+  <meta property="og:description" content="Return to ATRIPPER and continue your journey into limitless beauty." />
+  <meta property="og:url" content="https://atripper.com/404.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://atripper.com/images/atripper_05.jpg" />
+  <meta property="og:image:alt" content="PauAi and VikAi in a stylized editorial composition with angel wings and hearts" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Page not found | ATRIPPER" />
+  <meta name="twitter:description" content="Return to ATRIPPER and continue your journey into limitless beauty." />
+  <meta name="twitter:image" content="https://atripper.com/images/atripper_05.jpg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #f5f5f5;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    .btn-core {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: .3s;
+      text-decoration: none;
+    }
+    .btn-core:hover {
+      background: rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+<div id="globalMenu"></div>
+
+<main>
+  <section class="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+    <img
+      src="/images/atripper_05.jpg"
+      alt="PauAi and VikAi in a surreal editorial scene with wings and hearts"
+      class="absolute inset-0 w-full h-full object-cover opacity-90"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </section>
+
+  <section class="text-center py-20 px-6">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6">ATRIPPER - 404</h1>
+    <p class="text-2xl md:text-3xl font-light tracking-[0.04em] text-[#D4AF87] mb-8">
+      A journey into limitless beauty
+    </p>
+    
+    <div class="max-w-2xl mx-auto text-base md:text-lg text-white/80 leading-relaxed space-y-6">
+      <p>This page does not exist or is no longer available.</p>
+      <p>
+        But the experience continues. Return to ATRIPPER and explore the visual universe of PauAi and VikAi.
+      </p>
+    </div>
+
+    <div class="mt-12 flex justify-center gap-4 flex-wrap">
+      <a href="/" class="btn-core text-white border-[#D4AF87] hover:border-[#E8D5A3] hover:bg-white/10">
+        Back to Home
+      </a>
+      <a href="/pauai.html" class="btn-core text-white">PauAi</a>
+      <a href="/vikai.html" class="btn-core text-white">VikAi</a>
+    </div>
+
+    <div class="mt-12 text-xs tracking-[0.4em] text-white/50">.: ATRIPPER :.</div>
+  </section>
+
+  <section class="text-center py-6">
+    <a href="https://fanvue.com/atripper"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn-core text-white text-base px-6 py-3 border-[#D4AF87] hover:border-[#E8D5A3] hover:bg-white/10 transition-all">
+      Access full experience on Fanvue
+    </a>
+  </section>
+</main>
+
+<div id="footer-container"></div>
+
+<script>
+async function loadBlock(id, url) {
+  try {
+    const res = await fetch(url);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+  } catch (error) {
+    console.error(`Error loading ${url}:`, error);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadBlock("globalMenu", "/menu.html");
+  loadBlock("footer-container", "/footer.html");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<nav class="main-menu" role="navigation" aria-label="Main navigation">
+  <ul>
+    <li><a href="https://atripper.com/about.html">About</a></li>
+    <li class="logo-item">
+      <a href="https://atripper.com/" aria-label="Atripper Home">
+        <img
+          src="https://atripper.com/svg/atripper.svg"
+          alt="Atripper logo"
+          class="menu-logo"
+          width="180"
+          height="60"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </a>
+    </li>
+    <li><a href="https://atripper.com/pauai.html">PauAi</a></li>
+    <li><a href="https://atripper.com/vikai.html">VikAi</a></li>
+	  <li><a href="https://atripper.com/brand/">:: Brand</a></li>
+  </ul>
+</nav>
+
+<style>
+  body, .main-menu {
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  .main-menu {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    min-width: 280px;
+    max-width: 95%;
+    padding: 12px 18px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 999px;
+    z-index: 1000;
+  }
+  .main-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .main-menu li {
+    margin-left: -4px;
+    display: flex;
+    align-items: center;
+  }
+  .main-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .main-menu a.active {
+    background: white;
+    color: black;
+  }
+  .main-menu a:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+  .menu-logo {
+    height: 30px;
+    width: auto;
+    opacity: 0.9;
+    filter: brightness(0) invert(1);
+  }
+
+  /* RESPONSIVE + SAFE AREA iPHONE */
+  @media screen and (max-width: 768px) {
+    .main-menu {
+      position: fixed;
+      top: 0; 
+      left: 0; 
+      right: 0;
+      width: 100%;
+      justify-content: space-around;
+      padding-top: calc(6px + env(safe-area-inset-top, 0px));
+      padding-bottom: 6px;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-radius: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .main-menu ul {
+      gap: 0 !important;
+    }
+    .main-menu li {
+      margin-left: -4px !important;
+    }
+    .main-menu a {
+      font-size: 10px;
+      padding: 3px 8px;
+      gap: 4px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    body {
+      padding-top: calc(44px + env(safe-area-inset-top, 0px));
+    }
+    .menu-logo {
+      height: 18px;
+      width: auto;
+    }
+    .mobile-only,
+    li.mobile-only {
+      display: none !important;
+    }
+    .main-menu ul > li { 
+      flex-shrink: 1; 
+      min-width: 0; 
+    }
+    .main-menu a { 
+      min-width: 0; 
+    }
+  }
+</style>
+
+<script>
+/* Marca activa en el menú */
+const currentPath = window.location.pathname.replace(/\/$/, '');
+document.querySelectorAll('.main-menu a').forEach(link => {
+  const linkPath = new URL(link.href).pathname.replace(/\/$/, '');
+  link.classList.toggle('active', linkPath === currentPath);
+});
+</script>
+
+<script>
+/* Fix Safari duplicado de estilos */
+const styles = document.querySelectorAll("style");
+styles.forEach(style => {
+  const cloned = document.createElement("style");
+  cloned.innerHTML = style.innerHTML;
+  document.head.appendChild(cloned);
+});
+</script>
