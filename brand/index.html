@@ -33,33 +33,70 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- SCHEMA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://atripper.com/brand/#webpage",
-        "url": "https://atripper.com/brand/",
-        "name": "ATRIPPER Brand",
-        "description": "ATRIPPER visual identity and editorial brand presence."
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://atripper.com/brand/#webpage",
+      "url": "https://atripper.com/brand/",
+      "name": "ATRIPPER Brand",
+      "description": "ATRIPPER visual identity and editorial brand presence.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://atripper.com/#website"
       },
-      {
-        "@type": "Brand",
-        "name": "ATRIPPER",
-        "url": "https://atripper.com/",
-        "description": "ATRIPPER is a visual AI-driven editorial brand exploring limitless beauty through image and atmosphere."
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://atripper.com/#website",
-        "url": "https://atripper.com/",
-        "name": "ATRIPPER"
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://atripper.com/brand/#brand",
+      "name": "ATRIPPER",
+      "url": "https://atripper.com/",
+      "description": "ATRIPPER is a visual AI-driven editorial brand exploring limitless beauty through image and atmosphere.",
+      "isPartOf": {
+        "@id": "https://atripper.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://atripper.com/#website",
+      "url": "https://atripper.com/",
+      "name": "ATRIPPER",
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://atripper.com/#organization",
+      "name": "ATRIPPER",
+      "url": "https://atripper.com/",
+      "parentOrganization": {
+        "@id": "https://alarsi.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://alarsi.com/#organization",
+      "name": "ALARSI",
+      "url": "https://alarsi.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alarsi.com/logo-alarsi.svg"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@alarsi.com",
+        "contactType": "customer service"
+      }
+    }
+  ]
+}
+</script>
 
   <style>
     :root {
