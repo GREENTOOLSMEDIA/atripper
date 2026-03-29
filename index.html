@@ -30,40 +30,58 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://atripper.com/#website",
-        "url": "https://atripper.com/",
-        "name": "ATRIPPER",
-        "description": "Digital art project exploring beauty, identity, and atmosphere through cinematic visual compositions featuring PauAi and VikAi.",
-        "inLanguage": "en",
-        "publisher": {
-          "@id": "https://atripper.com/#organization"
-        }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://atripper.com/#organization",
-        "name": "ATRIPPER",
-        "url": "https://atripper.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://atripper.com/svg/atripper.svg"
-        },
-        "sameAs": [
-          "https://x.com/atripper2030",
-          "https://www.youtube.com/@atripper",
-          "https://www.instagram.com/atripper2030",
-          "https://www.fanvue.com/atripper"
-        ]
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://atripper.com/#website",
+      "url": "https://atripper.com/",
+      "name": "ATRIPPER",
+      "description": "Digital art project exploring beauty, identity, and atmosphere through cinematic visual compositions featuring PauAi and VikAi.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://atripper.com/#organization",
+      "name": "ATRIPPER",
+      "url": "https://atripper.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://atripper.com/svg/atripper.svg"
+      },
+      "parentOrganization": {
+        "@id": "https://alarsi.com/#organization"
+      },
+      "sameAs": [
+        "https://x.com/atripper2030",
+        "https://www.youtube.com/@atripper",
+        "https://www.instagram.com/atripper2030",
+        "https://www.fanvue.com/atripper"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://alarsi.com/#organization",
+      "name": "ALARSI",
+      "url": "https://alarsi.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alarsi.com/logo-alarsi.svg"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@alarsi.com",
+        "contactType": "customer service"
+      }
+    }
+  ]
+}
+</script>
 
   <style>
     :root {
