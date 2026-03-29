@@ -34,50 +34,71 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "AboutPage",
-        "@id": "https://atripper.com/about.html#webpage",
-        "name": "About ATRIPPER",
-        "url": "https://atripper.com/about.html",
-        "description": "ATRIPPER is an editorial digital art project exploring beauty, atmosphere, and cinematic visual storytelling through PauAi and VikAi.",
-        "inLanguage": "en",
-        "isPartOf": {
-          "@id": "https://atripper.com/#website"
-        },
-        "publisher": {
-          "@id": "https://atripper.com/#organization"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://atripper.com/images/atripper_07.jpg#image"
-        }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://atripper.com/about.html#webpage",
+      "name": "About ATRIPPER",
+      "url": "https://atripper.com/about.html",
+      "description": "ATRIPPER is an editorial digital art project exploring beauty, atmosphere, and cinematic visual storytelling through PauAi and VikAi.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://atripper.com/#website"
       },
-      {
-        "@type": "ImageObject",
-        "@id": "https://atripper.com/images/atripper_07.jpg#image",
-        "contentUrl": "https://atripper.com/images/atripper_07.jpg",
-        "url": "https://atripper.com/images/atripper_07.jpg",
-        "name": "ATRIPPER About visual identity",
-        "caption": "PauAi and VikAi in a cinematic editorial scene inside the ATRIPPER visual universe",
-        "inLanguage": "en"
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://atripper.com/#website",
-        "url": "https://atripper.com/",
-        "name": "ATRIPPER"
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://atripper.com/#organization",
-        "name": "ATRIPPER",
-        "url": "https://atripper.com/"
+      "primaryImageOfPage": {
+        "@id": "https://atripper.com/images/atripper_07.jpg#image"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://atripper.com/images/atripper_07.jpg#image",
+      "contentUrl": "https://atripper.com/images/atripper_07.jpg",
+      "url": "https://atripper.com/images/atripper_07.jpg",
+      "name": "ATRIPPER About visual identity",
+      "caption": "PauAi and VikAi in a cinematic editorial scene inside the ATRIPPER visual universe",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://atripper.com/#website",
+      "url": "https://atripper.com/",
+      "name": "ATRIPPER",
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://atripper.com/#organization",
+      "name": "ATRIPPER",
+      "url": "https://atripper.com/",
+      "parentOrganization": {
+        "@id": "https://alarsi.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://alarsi.com/#organization",
+      "name": "ALARSI",
+      "url": "https://alarsi.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alarsi.com/logo-alarsi.svg"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@alarsi.com",
+        "contactType": "customer service"
+      }
+    }
+  ]
+}
+</script>
 
   <style>
     :root {
