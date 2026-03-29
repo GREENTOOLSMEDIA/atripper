@@ -34,60 +34,84 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfilePage",
-        "@id": "https://atripper.com/vikai.html#webpage",
-        "name": "VikAi",
-        "url": "https://atripper.com/vikai.html",
-        "description": "VikAi is an intense editorial identity within ATRIPPER, defined by strength, beauty, atmosphere, and cinematic visual presence.",
-        "inLanguage": "en",
-        "isPartOf": {
-          "@id": "https://atripper.com/#website"
-        },
-        "publisher": {
-          "@id": "https://atripper.com/#organization"
-        },
-        "mainEntity": {
-          "@id": "https://atripper.com/vikai.html#person"
-        },
-        "primaryImageOfPage": {
-          "@id": "https://atripper.com/images/vikai-close-up-face.jpg#image"
-        }
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://atripper.com/vikai.html#webpage",
+      "name": "VikAi",
+      "url": "https://atripper.com/vikai.html",
+      "description": "VikAi is an intense editorial identity within ATRIPPER, defined by strength, beauty, atmosphere, and cinematic visual presence.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://atripper.com/#website"
       },
-      {
-        "@type": "Person",
-        "@id": "https://atripper.com/vikai.html#person",
-        "name": "VikAi",
-        "description": "An intense editorial identity within the ATRIPPER universe."
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
       },
-      {
-        "@type": "ImageObject",
-        "@id": "https://atripper.com/images/vikai-close-up-face.jpg#image",
-        "contentUrl": "https://atripper.com/images/vikai-close-up-face.jpg",
-        "url": "https://atripper.com/images/vikai-close-up-face.jpg",
-        "name": "VikAi portrait",
-        "caption": "Close-up editorial portrait of VikAi with dark hair, green eyes, and an intense magnetic expression",
-        "inLanguage": "en"
+      "mainEntity": {
+        "@id": "https://atripper.com/vikai.html#person"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://atripper.com/#website",
-        "url": "https://atripper.com/",
-        "name": "ATRIPPER"
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://atripper.com/#organization",
-        "name": "ATRIPPER",
-        "url": "https://atripper.com/"
+      "primaryImageOfPage": {
+        "@id": "https://atripper.com/images/vikai-close-up-face.jpg#image"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Person",
+      "@id": "https://atripper.com/vikai.html#person",
+      "name": "VikAi",
+      "description": "An intense editorial identity within the ATRIPPER universe.",
+      "isPartOf": {
+        "@id": "https://atripper.com/#organization"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://atripper.com/images/vikai-close-up-face.jpg#image",
+      "contentUrl": "https://atripper.com/images/vikai-close-up-face.jpg",
+      "url": "https://atripper.com/images/vikai-close-up-face.jpg",
+      "name": "VikAi portrait",
+      "caption": "Close-up editorial portrait of VikAi with dark hair, green eyes, and an intense magnetic expression",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://atripper.com/#website",
+      "url": "https://atripper.com/",
+      "name": "ATRIPPER",
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://atripper.com/#organization",
+      "name": "ATRIPPER",
+      "url": "https://atripper.com/",
+      "parentOrganization": {
+        "@id": "https://alarsi.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://alarsi.com/#organization",
+      "name": "ALARSI",
+      "url": "https://alarsi.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://alarsi.com/logo-alarsi.svg"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@alarsi.com",
+        "contactType": "customer service"
+      }
+    }
+  ]
+}
+</script>
 
   <style>
     :root {
