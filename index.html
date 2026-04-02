@@ -4,12 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ATRIPPER — A journey into limitless beauty</title>
-  <meta name="description" content="ATRIPPER is a digital art project exploring beauty, identity, and atmosphere through cinematic visual compositions featuring PauAi and VikAi." />
+  <meta name="description" content="ATRIPPER is a digital art project exploring beauty, identity, and atmosphere through cinematic visual compositions featuring PauAi, VikAi and BetyAi." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#a80000" />
   <link rel="canonical" href="https://atripper.com/" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="/favicon.ico" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="ATRIPPER" />
@@ -30,58 +35,93 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://atripper.com/#website",
-      "url": "https://atripper.com/",
-      "name": "ATRIPPER",
-      "description": "Digital art project exploring beauty, identity, and atmosphere through cinematic visual compositions featuring PauAi and VikAi.",
-      "inLanguage": "en",
-      "publisher": {
-        "@id": "https://atripper.com/#organization"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://atripper.com/#website",
+        "url": "https://atripper.com/",
+        "name": "ATRIPPER",
+        "description": "Digital art project exploring beauty, identity, and atmosphere through cinematic visual compositions featuring PauAi, VikAi and BetyAi.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://atripper.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://atripper.com/#organization",
+        "name": "ATRIPPER",
+        "url": "https://atripper.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://atripper.com/favicon.svg"
+        },
+        "parentOrganization": {
+          "@id": "https://alarsi.com/#organization"
+        },
+        "sameAs": [
+          "https://x.com/atripperproject",
+          "https://www.instagram.com/atripper2030",
+          "https://www.fanvue.com/atripper"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://alarsi.com/#organization",
+        "name": "ALARSI",
+        "url": "https://alarsi.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://alarsi.com/logo-alarsi.svg"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@alarsi.com",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://atripper.com/#project",
+        "name": "ATRIPPER — A journey into limitless beauty",
+        "url": "https://atripper.com/",
+        "description": "ATRIPPER is a digital art project exploring beauty, identity, and atmosphere through cinematic visual compositions featuring PauAi, VikAi and BetyAi under the creative direction of ALARSI.",
+        "creator": {
+          "@id": "https://alarsi.com/#organization"
+        },
+        "publisher": {
+          "@id": "https://atripper.com/#organization"
+        },
+        "isPartOf": {
+          "@id": "https://atripper.com/#website"
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://www.paulinadots.com/informe-transparencia.html",
+        "name": "Informe de Transparencia Algorítmica 2022–2026",
+        "url": "https://www.paulinadots.com/informe-transparencia.html",
+        "description": "Documentación completa del modelo de autoría, supervisión humana, ingeniería aplicada y fricciones algorítmicas bajo el sistema ALARSI.",
+        "creator": {
+          "@id": "https://alarsi.com/#organization"
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://www.paulinadots.com/identity-core/",
+        "name": "Identity Core",
+        "url": "https://www.paulinadots.com/identity-core/",
+        "description": "Sistema paramétrico central de referencia visual y consistencia de identidad aplicado a múltiples sistemas visuales desarrollados bajo la dirección de ALARSI.",
+        "creator": {
+          "@id": "https://alarsi.com/#organization"
+        }
       }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://atripper.com/#organization",
-      "name": "ATRIPPER",
-      "url": "https://atripper.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://atripper.com/svg/atripper.svg"
-      },
-      "parentOrganization": {
-        "@id": "https://alarsi.com/#organization"
-      },
-      "sameAs": [
-        "https://x.com/atripper2030",
-        "https://www.youtube.com/@atripper",
-        "https://www.instagram.com/atripper2030",
-        "https://www.fanvue.com/atripper"
-      ]
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://alarsi.com/#organization",
-      "name": "ALARSI",
-      "url": "https://alarsi.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://alarsi.com/logo-alarsi.svg"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "info@alarsi.com",
-        "contactType": "customer service"
-      }
-    }
-  ]
-}
-</script>
+    ]
+  }
+  </script>
 
   <style>
     :root {
