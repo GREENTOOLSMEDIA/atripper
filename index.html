@@ -21,12 +21,12 @@
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Performance -->
-  <link
-    rel="preload"
-    as="image"
-    href="https://atripper.com/images/atripper-pauai-vikai.jpg"
-    imagesrcset="https://atripper.com/images/atripper-pauai-vikai.jpg"
-  />
+ <link
+  rel="preload"
+  as="image"
+  href="https://atripper.com/images/atripper-pauai-vikai.jpg"
+  fetchpriority="high"
+/>
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="ATRIPPER" />
@@ -1029,12 +1029,7 @@
               cinematic visual compositions. PauAi and VikAi embody a contemporary visual duality:
               one luminous and ethereal, the other intense and magnetic.
             </p>
-            <div class="hero-actions">
-              <a class="btn-core" href="#visual-exploration">Explore visuals</a>
-              <a class="btn-core btn-core--accent" href="https://www.fanvue.com/atripper" target="_blank" rel="noopener noreferrer">
-                Access full experience on Fanvue
-              </a>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -1208,7 +1203,7 @@
                 <button
                   class="play-button"
                   type="button"
-                  data-video-src="/trailers/atripper_demo_01.mp4"
+                  data-video-src="https://atripper.com/trailers/atripper_demo_01.mp4""
                   aria-label="Play The symphony of an angel"
                 >
                   <span class="play-button__disc" aria-hidden="true">
