@@ -1343,59 +1343,61 @@
   </div>
 
   <script>
-    (function () {
-      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
-      document.querySelectorAll(".main-menu a").forEach((link) => {
-        const linkPath = new URL(link.href).pathname.replace(/\/$/, "") || "/";
-        if (linkPath === currentPath) {
-          link.classList.add("active");
-          if (currentPath === "/") {
-            link.setAttribute("aria-current", "page");
-          }
-        }
-      });
+  (function () {
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
 
-      const modal = document.getElementById("videoModal");
-      const video = document.getElementById("localVideo");
-      const closeButton = document.getElementById("videoModalClose");
-      const playButtons = document.querySelectorAll("[data-video-src]");
+    document.querySelectorAll(".main-menu a").forEach((link) => {
+      if (link.closest(".logo-item")) return;
 
-      function openVideoModal(videoSrc) {
-        if (!videoSrc) return;
-        video.src = videoSrc;
-        modal.classList.add("is-open");
-        modal.setAttribute("aria-hidden", "false");
-        video.play().catch(() => {});
+      const linkPath = new URL(link.href).pathname.replace(/\/$/, "") || "/";
+
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
       }
+    });
 
-      function closeVideoModal() {
-        video.pause();
-        video.removeAttribute("src");
-        video.load();
-        modal.classList.remove("is-open");
-        modal.setAttribute("aria-hidden", "true");
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("localVideo");
+    const closeButton = document.getElementById("videoModalClose");
+    const playButtons = document.querySelectorAll("[data-video-src]");
+
+    function openVideoModal(videoSrc) {
+      if (!videoSrc) return;
+      video.src = videoSrc;
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      video.play().catch(() => {});
+    }
+
+    function closeVideoModal() {
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    playButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        openVideoModal(this.getAttribute("data-video-src"));
+      });
+    });
+
+    closeButton.addEventListener("click", closeVideoModal);
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        closeVideoModal();
       }
+    });
 
-      playButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          openVideoModal(this.getAttribute("data-video-src"));
-        });
-      });
-
-      closeButton.addEventListener("click", closeVideoModal);
-
-      modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-          closeVideoModal();
-        }
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && modal.classList.contains("is-open")) {
-          closeVideoModal();
-        }
-      });
-    })();
-  </script>
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeVideoModal();
+      }
+    });
+  })();
+</script>
 </body>
 </html>
