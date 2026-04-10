@@ -3,51 +3,54 @@
   <button class="pd-vynil-disc" type="button" aria-label="Play/Pause">
     <img src="images/atripper-vynil-low-res.png" alt="" width="26" height="26" />
   </button>
-
-<nav class="pd-vynil-tracks" aria-label="Tracks">
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/01-i-dont-raise-my-voice-to-be-heard-alarsi.mp3">I Don’t Raise My Voice To Be Heard</button>
+  
+  <nav class="pd-vynil-tracks" aria-label="Tracks">
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/01-i-dont-raise-my-voice-to-be-heard-alarsi.mp3">I Don’t Raise My Voice To Be Heard</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/02-lights-hit-the-mirror-alarsi.mp3">Lights Hit The Mirror</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/02-lights-hit-the-mirror-alarsi.mp3">Lights Hit The Mirror</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/03-i-dont-need-to-prove-it-alarsi.mp3">I Don’t Need To Prove It</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/03-i-dont-need-to-prove-it-alarsi.mp3">I Don’t Need To Prove It</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/04-latin-dancer-alarsi.mp3">Latin Dancer</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/04-latin-dancer-alarsi.mp3">Latin Dancer</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/05-lights-are-low-alarsi.mp3">Lights Are Low</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/05-lights-are-low-alarsi.mp3">Lights Are Low</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/06-night-falls-quiet-alarsi.mp3">Night Falls Quiet</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/06-night-falls-quiet-alarsi.mp3">Night Falls Quiet</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/07-passion-lights-alarsi.mp3">Passion Lights</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/07-passion-lights-alarsi.mp3">Passion Lights</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/08-welcome-to-the-future-alarsi.mp3">Welcome To The Future</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/08-welcome-to-the-future-alarsi.mp3">Welcome To The Future</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/09-you-say-stop-then-you-say-go-alarsi.mp3">You Say Stop, Then You Say Go</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/09-you-say-stop-then-you-say-go-alarsi.mp3">You Say Stop, Then You Say Go</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/10-yeah-alarsi-vocal-version.mp3">Yeah... (Alarsi Vocal Version)</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/10-yeah-alarsi-vocal-version.mp3">Yeah... (Alarsi Vocal Version)</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/11-i-like-to-dance-till-the-bones-break-alarsi.mp3">I Like To Dance Till The Bones Break</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/11-i-like-to-dance-till-the-bones-break-alarsi.mp3">I Like To Dance Till The Bones Break</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/12-super-influencers-alarsi-vocal-version.mp3">Super Influencers (Alarsi Vocal Version)</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/12-super-influencers-alarsi-vocal-version.mp3">Super Influencers (Alarsi Vocal Version)</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/13-engines-screaming-alarsi.mp3">Engines Screaming</button>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/13-engines-screaming-alarsi.mp3">Engines Screaming</button>
     <span class="pd-sep" aria-hidden="true"></span>
-    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/14-node-44-alarsi-vocal-version.mp3">Node 44 (Alarsi Vocal Version)</button>
-</nav>
+    <button type="button" class="pd-track" data-src="https://atripper.com/audio/14-node-44-alarsi-vocal-version.mp3">Node 44 (Alarsi Vocal Version)</button>
+  </nav>
 
   <audio class="pd-audio" preload="none"></audio>
 </div>
 
 <style>
   .pd-vynil-player{
-    width: 1920px;
+    width: 100%;                    /* Cambiado: en vez de 1920px fijo */
+    max-width: 1920px;              /* Opcional: límite máximo */
     height: 34px;
     display: flex;
     align-items: center;
+    justify-content: center;        /* ← CENTRA TODO horizontalmente */
     gap: 12px;
-    overflow: hidden;           /* se mantiene */
+    overflow: hidden;
     user-select: none;
     -webkit-user-select: none;
     font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    margin: 0 auto;                 /* Por si está dentro de otro contenedor */
   }
 
   .pd-vynil-disc{
@@ -74,8 +77,8 @@
     animation: pdSpin 1.2s linear infinite;
   }
 
-  @keyframes pdSpin{ 
-    to{ transform: rotate(360deg); } 
+  @keyframes pdSpin{
+    to{ transform: rotate(360deg); }
   }
 
   .pd-vynil-tracks {
@@ -83,17 +86,19 @@
     align-items: center;
     gap: 10px;
     white-space: nowrap;
-    overflow-x: auto;           /* scroll horizontal */
+    overflow-x: auto;
     overflow-y: hidden;
-    flex: 1 1 auto;             /* ← AGREGADO */
-    min-width: 0;               /* ← AGREGADO (esto es lo que faltaba) */
-    scrollbar-width: none;      /* Firefox */
-    -ms-overflow-style: none;   /* IE/Edge */
+    flex: 1 1 auto;
+    min-width: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding-bottom: 4px;
+    /* Centrado adicional si el scroll no ocupa todo el ancho */
+    justify-content: center;        /* ← Ayuda a centrar cuando hay poco contenido */
   }
 
   .pd-vynil-tracks::-webkit-scrollbar {
-    display: none;              /* Chrome/Safari/Edge */
+    display: none;
   }
 
   .pd-track{
@@ -103,35 +108,34 @@
     margin: 0;
     font-size: 10px;
     line-height: 1;
-    color: rgba(0,0,0,.72);
+    color: #ffffff;                    /* ← TEXTO EN BLANCO */
     cursor: pointer;
   }
 
-  .pd-track:hover{ 
-    text-decoration: underline; 
-    text-underline-offset: 3px; 
+  .pd-track:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
-  .pd-track.is-active{ 
-    font-weight: 600; 
-    text-decoration: underline; 
-    text-underline-offset: 3px; 
+  .pd-track.is-active{
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .pd-sep{
     width: 1px;
     height: 16px;
-    background: rgba(0,0,0,.22);
+    background: rgba(255,255,255,0.35);   /* ← Separador más visible en fondo oscuro */
     flex: 0 0 auto;
   }
 </style>
 
 <script>
+  // (Tu script se mantiene igual, no necesita cambios)
   (function(){
-    // Encuentra el .pd-vynil-player asociado a ESTE script (subiendo hacia atrás)
     let el = document.currentScript;
     let root = null;
-
     while(el){
       el = el.previousElementSibling;
       if(el && el.classList && el.classList.contains('pd-vynil-player')){
@@ -139,15 +143,12 @@
         break;
       }
     }
-
-    // Fallback: si por alguna razón el HTML cambia, toma el primero
     if(!root) root = document.querySelector('.pd-vynil-player');
     if(!root) return;
 
     const audio = root.querySelector('.pd-audio');
     const discBtn = root.querySelector('.pd-vynil-disc');
     const trackBtns = Array.from(root.querySelectorAll('.pd-track'));
-
     let currentSrc = '';
     let lastChosen = null;
 
@@ -159,22 +160,18 @@
 
     async function playSrc(src, btn){
       if(!src) return;
-
       if(currentSrc !== src){
         audio.pause();
         audio.currentTime = 0;
         audio.src = src;
-        audio.load(); // ayuda en Safari cuando cambias src
+        audio.load();
         currentSrc = src;
       }
-
       try{
-        await audio.play(); // debe ser gatillado por click (y aquí lo es)
+        await audio.play();
         setActive(btn);
         setPlayingUI(true);
       }catch(e){
-        // Si quieres debug rápido:
-        // console.warn('Audio play blocked/failed:', e);
         setPlayingUI(false);
       }
     }
@@ -191,9 +188,8 @@
 
     trackBtns.forEach(btn => btn.addEventListener('click', ()=> playSrc(btn.dataset.src, btn)));
     discBtn.addEventListener('click', toggle);
-
     audio.addEventListener('pause', ()=> setPlayingUI(false));
     audio.addEventListener('ended', ()=> setPlayingUI(false));
-    audio.addEventListener('play',  ()=> setPlayingUI(true));
+    audio.addEventListener('play', ()=> setPlayingUI(true));
   })();
 </script>
