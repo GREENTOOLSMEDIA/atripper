@@ -290,10 +290,40 @@
       </p>
     </div>
     
-    <div class="mt-14 text-xs tracking-[0.5em] text-white/50">.: ATRIPPER :.</div>
+   <div class="mt-14 text-xs tracking-[0.5em] text-white/50">.: ATRIPPER :.</div>
   </div>
+
+  <!-- Vinyl Player -->
+  <div id="atripper-vynil-player" class="my-16"></div>
 </section>
-	
+
+<section class="text-center py-16">
+  <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+    
+    <!-- Fanvue Support -->
+    <a href="https://fanvue.com/atripper"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-light tracking-widest border border-[#D4AF87]/70 hover:border-[#E8D5A3] hover:bg-white/5 transition-all rounded-full">
+      ☕ Support me on Fanvue
+      <span class="text-[#D4AF87] text-xs">→</span>
+    </a>
+
+    <!-- Follow on X -->
+    <a href="https://x.com/atripperproject"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-light tracking-widest border border-[#D4AF87]/70 hover:border-[#E8D5A3] hover:bg-white/5 transition-all rounded-full">
+      Follow on X
+      <span class="text-[#D4AF87] text-xs">→</span>
+    </a>
+
+  </div>
+
+  <p class="mt-6 text-xs text-white/40 tracking-wider">
+    Your support helps me keep building and improving ATRIPPER
+  </p>
+</section>
 </main>
 
 <div id="footer-container"></div>
@@ -309,9 +339,90 @@ async function loadBlock(id, url) {
   }
 }
 
+// Función especial para cargar el Vinyl Player correctamente
+async function loadVinylPlayer() {
+  const container = document.getElementById("atripper-vynil-player");
+  if (!container) return;
+
+  try {
+    const res = await fetch("https://atripper.com/atripper-vynil-player.html");
+    let html = await res.text();
+
+    // Insertamos solo el HTML + CSS (sin el script viejo)
+    container.innerHTML = html;
+
+    // Creamos y ejecutamos el JavaScript del reproductor
+    const script = document.createElement("script");
+    script.textContent = `
+      (function(){
+        const root = document.querySelector('.pd-vynil-player');
+        if (!root) return;
+
+        const audio = root.querySelector('.pd-audio');
+        const discBtn = root.querySelector('.pd-vynil-disc');
+        const trackBtns = Array.from(root.querySelectorAll('.pd-track'));
+        let currentSrc = '';
+        let lastChosen = null;
+
+        function setPlayingUI(on) { 
+          root.classList.toggle('is-playing', !!on); 
+        }
+
+        function setActive(btn){
+          trackBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          if (btn) lastChosen = btn;
+        }
+
+        async function playSrc(src, btn){
+          if (!src) return;
+          if (currentSrc !== src){
+            audio.pause();
+            audio.currentTime = 0;
+            audio.src = src;
+            audio.load();
+            currentSrc = src;
+          }
+          try{
+            await audio.play();
+            setActive(btn);
+            setPlayingUI(true);
+          }catch(e){
+            setPlayingUI(false);
+          }
+        }
+
+        function toggle(){
+          if (!audio.src){
+            const first = trackBtns[0];
+            return playSrc(first?.dataset?.src || '', first);
+          }
+          if (audio.paused) {
+            return playSrc(audio.src, lastChosen || trackBtns.find(b => b.dataset.src === currentSrc) || trackBtns[0]);
+          }
+          audio.pause();
+          setPlayingUI(false);
+        }
+
+        // Asignar eventos
+        trackBtns.forEach(btn => btn.addEventListener('click', () => playSrc(btn.dataset.src, btn)));
+        if (discBtn) discBtn.addEventListener('click', toggle);
+
+        audio.addEventListener('pause', () => setPlayingUI(false));
+        audio.addEventListener('ended', () => setPlayingUI(false));
+        audio.addEventListener('play', () => setPlayingUI(true));
+      })();
+    `;
+    document.body.appendChild(script);
+
+  } catch (error) {
+    console.error("Error cargando el vinyl player:", error);
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   loadBlock("globalMenu", "/menu.html");
   loadBlock("footer-container", "/footer.html");
+  loadVinylPlayer();
 });
 </script>
 </body>
