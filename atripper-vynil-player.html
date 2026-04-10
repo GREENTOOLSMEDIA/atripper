@@ -1,0 +1,199 @@
+<!-- atripper-vynil-player.html -->
+<div class="pd-vynil-player" role="group" aria-label="Vinyl mini player">
+  <button class="pd-vynil-disc" type="button" aria-label="Play/Pause">
+    <img src="images/atripper-vynil-low-res.png" alt="" width="26" height="26" />
+  </button>
+
+<nav class="pd-vynil-tracks" aria-label="Tracks">
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband01.mp3">Track 01</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband02.mp3">Track 02</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband03.mp3">Track 03</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband04.mp3">Track 04</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband05.mp3">Track 05</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband06.mp3">Track 06</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband07.mp3">Track 07</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband08.mp3">Track 08</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband09.mp3">Track 09</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband10.mp3">Track 10</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband11.mp3">Track 11</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband12.mp3">Track 12</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband13.mp3">Track 13</button>
+    <span class="pd-sep" aria-hidden="true"></span>
+    <button type="button" class="pd-track" data-src="https://www.atripper.com/audio/paudotsband14.mp3">Track 14</button>
+</nav>
+
+  <audio class="pd-audio" preload="none"></audio>
+</div>
+
+<style>
+  .pd-vynil-player{
+    width: 500px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;           /* se mantiene */
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .pd-vynil-disc{
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .pd-vynil-disc img{
+    width: 26px;
+    height: 26px;
+    display: block;
+    transform-origin: 50% 50%;
+  }
+
+  .pd-vynil-player.is-playing .pd-vynil-disc img{
+    animation: pdSpin 1.2s linear infinite;
+  }
+
+  @keyframes pdSpin{ 
+    to{ transform: rotate(360deg); } 
+  }
+
+  .pd-vynil-tracks {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    overflow-x: auto;           /* scroll horizontal */
+    overflow-y: hidden;
+    flex: 1 1 auto;             /* ← AGREGADO */
+    min-width: 0;               /* ← AGREGADO (esto es lo que faltaba) */
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE/Edge */
+    padding-bottom: 4px;
+  }
+
+  .pd-vynil-tracks::-webkit-scrollbar {
+    display: none;              /* Chrome/Safari/Edge */
+  }
+
+  .pd-track{
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1;
+    color: rgba(0,0,0,.72);
+    cursor: pointer;
+  }
+
+  .pd-track:hover{ 
+    text-decoration: underline; 
+    text-underline-offset: 3px; 
+  }
+
+  .pd-track.is-active{ 
+    font-weight: 600; 
+    text-decoration: underline; 
+    text-underline-offset: 3px; 
+  }
+
+  .pd-sep{
+    width: 1px;
+    height: 16px;
+    background: rgba(0,0,0,.22);
+    flex: 0 0 auto;
+  }
+</style>
+
+<script>
+  (function(){
+    // Encuentra el .pd-vynil-player asociado a ESTE script (subiendo hacia atrás)
+    let el = document.currentScript;
+    let root = null;
+
+    while(el){
+      el = el.previousElementSibling;
+      if(el && el.classList && el.classList.contains('pd-vynil-player')){
+        root = el;
+        break;
+      }
+    }
+
+    // Fallback: si por alguna razón el HTML cambia, toma el primero
+    if(!root) root = document.querySelector('.pd-vynil-player');
+    if(!root) return;
+
+    const audio = root.querySelector('.pd-audio');
+    const discBtn = root.querySelector('.pd-vynil-disc');
+    const trackBtns = Array.from(root.querySelectorAll('.pd-track'));
+
+    let currentSrc = '';
+    let lastChosen = null;
+
+    function setPlayingUI(on){ root.classList.toggle('is-playing', !!on); }
+    function setActive(btn){
+      trackBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+      if(btn) lastChosen = btn;
+    }
+
+    async function playSrc(src, btn){
+      if(!src) return;
+
+      if(currentSrc !== src){
+        audio.pause();
+        audio.currentTime = 0;
+        audio.src = src;
+        audio.load(); // ayuda en Safari cuando cambias src
+        currentSrc = src;
+      }
+
+      try{
+        await audio.play(); // debe ser gatillado por click (y aquí lo es)
+        setActive(btn);
+        setPlayingUI(true);
+      }catch(e){
+        // Si quieres debug rápido:
+        // console.warn('Audio play blocked/failed:', e);
+        setPlayingUI(false);
+      }
+    }
+
+    function toggle(){
+      if(!audio.src){
+        const first = trackBtns[0];
+        return playSrc(first?.dataset?.src || '', first);
+      }
+      if(audio.paused) return playSrc(audio.src, lastChosen || trackBtns.find(b => b.dataset.src === currentSrc) || trackBtns[0]);
+      audio.pause();
+      setPlayingUI(false);
+    }
+
+    trackBtns.forEach(btn => btn.addEventListener('click', ()=> playSrc(btn.dataset.src, btn)));
+    discBtn.addEventListener('click', toggle);
+
+    audio.addEventListener('pause', ()=> setPlayingUI(false));
+    audio.addEventListener('ended', ()=> setPlayingUI(false));
+    audio.addEventListener('play',  ()=> setPlayingUI(true));
+  })();
+</script>
