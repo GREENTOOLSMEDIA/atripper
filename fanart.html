@@ -259,9 +259,11 @@
 <div id="footer-container"></div>
 
 <script>
+const BUILD_VERSION = "atripper-2026-04-10-01";
+
 async function loadBlock(id, url) {
   try {
-    const res = await fetch(url);
+    const res = await fetch(`${url}?v=${BUILD_VERSION}`);
     const html = await res.text();
     document.getElementById(id).innerHTML = html;
   } catch (error) {
