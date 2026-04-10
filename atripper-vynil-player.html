@@ -3,11 +3,11 @@
   <!-- Disco centrado arriba -->
   <div class="pd-disc-container">
     <button class="pd-vynil-disc" type="button" aria-label="Play/Pause">
-      <img src="images/atripper-vynil-low-res.png" alt="" width="30" height="30" />
+      <img src="images/atripper-vynil-low-res.png" alt="" width="46" height="46" />
     </button>
   </div>
 
-  <!-- Tracks abajo -->
+  <!-- Tracks abajo - 4 por fila -->
   <nav class="pd-vynil-tracks" aria-label="Tracks">
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/01-i-dont-raise-my-voice-to-be-heard-alarsi.mp3">I Don’t Raise My Voice To Be Heard</button>
     <span class="pd-sep" aria-hidden="true"></span>
@@ -16,7 +16,10 @@
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/03-i-dont-need-to-prove-it-alarsi.mp3">I Don’t Need To Prove It</button>
     <span class="pd-sep" aria-hidden="true"></span>
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/04-latin-dancer-alarsi.mp3">Latin Dancer</button>
-    <span class="pd-sep" aria-hidden="true"></span>
+
+    <!-- Salto de línea después de cada 4 tracks -->
+    <span class="pd-line-break"></span>
+
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/05-lights-are-low-alarsi.mp3">Lights Are Low</button>
     <span class="pd-sep" aria-hidden="true"></span>
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/06-night-falls-quiet-alarsi.mp3">Night Falls Quiet</button>
@@ -24,7 +27,9 @@
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/07-passion-lights-alarsi.mp3">Passion Lights</button>
     <span class="pd-sep" aria-hidden="true"></span>
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/08-welcome-to-the-future-alarsi.mp3">Welcome To The Future</button>
-    <span class="pd-sep" aria-hidden="true"></span>
+
+    <span class="pd-line-break"></span>
+
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/09-you-say-stop-then-you-say-go-alarsi.mp3">You Say Stop, Then You Say Go</button>
     <span class="pd-sep" aria-hidden="true"></span>
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/10-yeah-alarsi-vocal-version.mp3">Yeah... (Alarsi Vocal Version)</button>
@@ -32,7 +37,9 @@
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/11-i-like-to-dance-till-the-bones-break-alarsi.mp3">I Like To Dance Till The Bones Break</button>
     <span class="pd-sep" aria-hidden="true"></span>
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/12-super-influencers-alarsi-vocal-version.mp3">Super Influencers (Alarsi Vocal Version)</button>
-    <span class="pd-sep" aria-hidden="true"></span>
+
+    <span class="pd-line-break"></span>
+
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/13-engines-screaming-alarsi.mp3">Engines Screaming</button>
     <span class="pd-sep" aria-hidden="true"></span>
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/14-node-44-alarsi-vocal-version.mp3">Node 44 (Alarsi Vocal Version)</button>
@@ -47,23 +54,22 @@
     max-width: 1200px;
     margin: 40px auto;
     display: flex;
-    flex-direction: column;     /* ← Cambiado a columna (disco arriba, tracks abajo) */
+    flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     user-select: none;
     -webkit-user-select: none;
     font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   }
 
-  /* Disco centrado arriba */
   .pd-disc-container {
     display: flex;
     justify-content: center;
   }
 
   .pd-vynil-disc {
-    width: 52px;
-    height: 52px;
+    width: 58px;
+    height: 58px;
     display: grid;
     place-items: center;
     background: transparent;
@@ -73,8 +79,8 @@
   }
 
   .pd-vynil-disc img {
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
     display: block;
     transform-origin: 50% 50%;
   }
@@ -87,22 +93,22 @@
     to { transform: rotate(360deg); }
   }
 
-  /* Tracks abajo */
+  /* Tracks en grid - 4 por fila */
   .pd-vynil-tracks {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, auto);   /* 4 columnas */
+    gap: 10px 16px;
+    justify-content: center;
     width: 100%;
+    max-width: 920px;
     padding: 0 20px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 
-  .pd-vynil-tracks::-webkit-scrollbar {
-    display: none;
+  .pd-line-break {
+    grid-column: 1 / -1;   /* Fuerza el salto de línea */
+    height: 0;
+    margin: 0;
+    padding: 0;
   }
 
   .pd-track {
@@ -111,10 +117,11 @@
     padding: 0;
     margin: 0;
     font-size: 10.5px;
-    line-height: 1;
+    line-height: 1.1;
     color: #ffffff;
     cursor: pointer;
-    flex-shrink: 0;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .pd-track:hover {
@@ -132,6 +139,7 @@
     width: 1px;
     height: 14px;
     background: rgba(255,255,255,0.40);
-    flex: 0 0 auto;
+    align-self: center;
+    justify-self: center;
   }
 </style>
