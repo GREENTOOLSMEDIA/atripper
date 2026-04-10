@@ -1,9 +1,13 @@
-<!-- atripper-vynil-player.html -->
 <div class="pd-vynil-player" role="group" aria-label="Vinyl mini player">
-  <button class="pd-vynil-disc" type="button" aria-label="Play/Pause">
-    <img src="images/atripper-vynil-low-res.png" alt="" width="26" height="26" />
-  </button>
   
+  <!-- Disco centrado arriba -->
+  <div class="pd-disc-container">
+    <button class="pd-vynil-disc" type="button" aria-label="Play/Pause">
+      <img src="images/atripper-vynil-low-res.png" alt="" width="30" height="30" />
+    </button>
+  </div>
+
+  <!-- Tracks abajo -->
   <nav class="pd-vynil-tracks" aria-label="Tracks">
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/01-i-dont-raise-my-voice-to-be-heard-alarsi.mp3">I Don’t Raise My Voice To Be Heard</button>
     <span class="pd-sep" aria-hidden="true"></span>
@@ -38,49 +42,52 @@
 </div>
 
 <style>
-  .pd-vynil-player{
-    width: 100%;                    /* Cambiado: en vez de 1920px fijo */
-    max-width: 1920px;              /* Opcional: límite máximo */
-    height: 34px;
+  .pd-vynil-player {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
     display: flex;
+    flex-direction: column;     /* ← Cambiado a columna (disco arriba, tracks abajo) */
     align-items: center;
-    justify-content: center;        /* ← CENTRA TODO horizontalmente */
-    gap: 12px;
-    overflow: hidden;
+    gap: 16px;
     user-select: none;
     -webkit-user-select: none;
     font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    margin: 0 auto;                 /* Por si está dentro de otro contenedor */
   }
 
-  .pd-vynil-disc{
-    width: 34px;
-    height: 34px;
+  /* Disco centrado arriba */
+  .pd-disc-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pd-vynil-disc {
+    width: 52px;
+    height: 52px;
     display: grid;
     place-items: center;
-    padding: 0;
-    margin: 0;
-    border: 0;
     background: transparent;
+    border: 0;
+    padding: 0;
     cursor: pointer;
-    flex: 0 0 auto;
   }
 
-  .pd-vynil-disc img{
-    width: 26px;
-    height: 26px;
+  .pd-vynil-disc img {
+    width: 46px;
+    height: 46px;
     display: block;
     transform-origin: 50% 50%;
   }
 
-  .pd-vynil-player.is-playing .pd-vynil-disc img{
-    animation: pdSpin 1.2s linear infinite;
+  .pd-vynil-player.is-playing .pd-vynil-disc img {
+    animation: pdSpin 1.3s linear infinite;
   }
 
-  @keyframes pdSpin{
-    to{ transform: rotate(360deg); }
+  @keyframes pdSpin {
+    to { transform: rotate(360deg); }
   }
 
+  /* Tracks abajo */
   .pd-vynil-tracks {
     display: flex;
     align-items: center;
@@ -88,51 +95,49 @@
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    flex: 1 1 auto;
-    min-width: 0;
+    width: 100%;
+    padding: 0 20px;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding-bottom: 4px;
-    /* Centrado adicional si el scroll no ocupa todo el ancho */
-    justify-content: center;        /* ← Ayuda a centrar cuando hay poco contenido */
   }
 
   .pd-vynil-tracks::-webkit-scrollbar {
     display: none;
   }
 
-  .pd-track{
+  .pd-track {
     border: 0;
     background: transparent;
     padding: 0;
     margin: 0;
-    font-size: 10px;
+    font-size: 10.5px;
     line-height: 1;
-    color: #ffffff;                    /* ← TEXTO EN BLANCO */
+    color: #ffffff;
     cursor: pointer;
+    flex-shrink: 0;
   }
 
-  .pd-track:hover{
+  .pd-track:hover {
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
   }
 
-  .pd-track.is-active{
+  .pd-track.is-active {
     font-weight: 600;
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
   }
 
-  .pd-sep{
+  .pd-sep {
     width: 1px;
-    height: 16px;
-    background: rgba(255,255,255,0.35);   /* ← Separador más visible en fondo oscuro */
+    height: 14px;
+    background: rgba(255,255,255,0.40);
     flex: 0 0 auto;
   }
 </style>
 
 <script>
-  // (Tu script se mantiene igual, no necesita cambios)
+  // Script sin cambios (funciona igual)
   (function(){
     let el = document.currentScript;
     let root = null;
@@ -153,6 +158,7 @@
     let lastChosen = null;
 
     function setPlayingUI(on){ root.classList.toggle('is-playing', !!on); }
+
     function setActive(btn){
       trackBtns.forEach(b => b.classList.toggle('is-active', b === btn));
       if(btn) lastChosen = btn;
