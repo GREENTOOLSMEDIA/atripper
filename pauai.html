@@ -113,6 +113,21 @@
         "email": "info@alarsi.com",
         "contactType": "customer service"
       }
+    },
+    {
+      "@type": "MusicPlaylist",
+      "@id": "https://atripper.com/#editorial-soundtrack",
+      "name": "ATRIPPER Editorial Soundtrack",
+      "description": "Cinematic ambient soundtrack selection accompanying the editorial experience across ATRIPPER.",
+      "isPartOf": {
+        "@id": "https://atripper.com/#website"
+      },
+      "creator": {
+        "@id": "https://alarsi.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://atripper.com/#organization"
+      }
     }
   ]
 }
@@ -320,8 +335,12 @@
    <div class="mt-14 text-xs tracking-[0.5em] text-white/50">.: ATRIPPER :.</div>
   </div>
 
-  <!-- Vinyl Player -->
-  <div id="atripper-vynil-player" class="my-16"></div>
+  <!-- Atripper Vinyl Player -->
+  <div 
+  id="atripper-vynil-player" 
+  class="my-16"
+  aria-label="Atripper cinematic soundtrack player">
+</div>
 </section>
 
 <section class="text-center py-16">
@@ -356,7 +375,7 @@
 <div id="footer-container"></div>
 
 <script>
-const BUILD_VERSION = "atripper-2026-04-10-01";
+const BUILD_VERSION = "atripper-2026-04-10-02";
 
 async function loadBlock(id, url) {
   try {
