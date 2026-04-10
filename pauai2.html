@@ -300,25 +300,22 @@
       </p>
     </div>
     
-    <div class="mt-14 text-xs tracking-[0.5em] text-white/50">.: ATRIPPER :.</div>
+   <div class="mt-14 text-xs tracking-[0.5em] text-white/50">.: ATRIPPER :.</div>
   </div>
-	
-		<div id="atripper-vynil-player"></div>
+
+  <!-- Vinyl Player -->
+  <div id="atripper-vynil-player" class="my-16"></div>
 </section>
-	
-  <section class="text-center py-6">
-    <a href="https://fanvue.com/atripper"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="btn-core text-white text-base px-6 py-3 border-[#D4AF87] hover:border-[#E8D5A3] hover:bg-white/10 transition-all">
-      Access full experience on Fanvue
-    </a>
-  </section>
 
-	
+<section class="text-center py-6">
+  <a href="https://fanvue.com/atripper"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="btn-core text-white text-base px-6 py-3 border-[#D4AF87] hover:border-[#E8D5A3] hover:bg-white/10 transition-all">
+    Access full experience on Fanvue
+  </a>
+</section>
 </main>
-	
-
 
 <div id="footer-container"></div>
 
@@ -333,10 +330,90 @@ async function loadBlock(id, url) {
   }
 }
 
+// Función especial para cargar el Vinyl Player correctamente
+async function loadVinylPlayer() {
+  const container = document.getElementById("atripper-vynil-player");
+  if (!container) return;
+
+  try {
+    const res = await fetch("https://atripper.com/atripper-vynil-player.html");
+    let html = await res.text();
+
+    // Insertamos solo el HTML + CSS (sin el script viejo)
+    container.innerHTML = html;
+
+    // Creamos y ejecutamos el JavaScript del reproductor
+    const script = document.createElement("script");
+    script.textContent = `
+      (function(){
+        const root = document.querySelector('.pd-vynil-player');
+        if (!root) return;
+
+        const audio = root.querySelector('.pd-audio');
+        const discBtn = root.querySelector('.pd-vynil-disc');
+        const trackBtns = Array.from(root.querySelectorAll('.pd-track'));
+        let currentSrc = '';
+        let lastChosen = null;
+
+        function setPlayingUI(on) { 
+          root.classList.toggle('is-playing', !!on); 
+        }
+
+        function setActive(btn){
+          trackBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+          if (btn) lastChosen = btn;
+        }
+
+        async function playSrc(src, btn){
+          if (!src) return;
+          if (currentSrc !== src){
+            audio.pause();
+            audio.currentTime = 0;
+            audio.src = src;
+            audio.load();
+            currentSrc = src;
+          }
+          try{
+            await audio.play();
+            setActive(btn);
+            setPlayingUI(true);
+          }catch(e){
+            setPlayingUI(false);
+          }
+        }
+
+        function toggle(){
+          if (!audio.src){
+            const first = trackBtns[0];
+            return playSrc(first?.dataset?.src || '', first);
+          }
+          if (audio.paused) {
+            return playSrc(audio.src, lastChosen || trackBtns.find(b => b.dataset.src === currentSrc) || trackBtns[0]);
+          }
+          audio.pause();
+          setPlayingUI(false);
+        }
+
+        // Asignar eventos
+        trackBtns.forEach(btn => btn.addEventListener('click', () => playSrc(btn.dataset.src, btn)));
+        if (discBtn) discBtn.addEventListener('click', toggle);
+
+        audio.addEventListener('pause', () => setPlayingUI(false));
+        audio.addEventListener('ended', () => setPlayingUI(false));
+        audio.addEventListener('play', () => setPlayingUI(true));
+      })();
+    `;
+    document.body.appendChild(script);
+
+  } catch (error) {
+    console.error("Error cargando el vinyl player:", error);
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   loadBlock("globalMenu", "/menu.html");
   loadBlock("footer-container", "/footer.html");
-	loadBlock("atripper-vynil-player", "https://atripper.com/atripper-vynil-player.html");
+  loadVinylPlayer();        // ← Esta es la que realmente carga el reproductor
 });
 </script>
 </body>
