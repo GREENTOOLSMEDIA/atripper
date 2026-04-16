@@ -1,13 +1,13 @@
 <div class="pd-vynil-player" role="group" aria-label="Vinyl mini player">
   
-  <!-- Atripper Vinyl Disc -->
+  <!-- Vinyl Disc -->
   <div class="pd-disc-container">
     <button class="pd-vynil-disc" type="button" aria-label="Play/Pause">
       <img src="images/atripper-vynil-low-res.png" alt="" width="46" height="46" />
     </button>
   </div>
 
-  <!-- Atripper Original Soundtrack Vol 01-->
+  <!-- Tracks -->
   <nav class="pd-vynil-tracks" aria-label="Tracks">
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/01-i-dont-raise-my-voice-to-be-heard-alarsi.mp3">I Don’t Raise My Voice To Be Heard</button>
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/02-lights-hit-the-mirror-alarsi.mp3">Lights Hit The Mirror</button>
@@ -34,7 +34,7 @@
     <button type="button" class="pd-track" data-src="https://atripper.com/audio/14-node-44-alarsi-vocal-version.mp3">Node 44 (Alarsi Vocal Version)</button>
   </nav>
 
-  <audio class="pd-audio" preload="none"></audio>
+  <audio class="pd-audio" preload="metadata" playsinline webkit-playsinline></audio>
 </div>
 
 <style>
@@ -47,29 +47,19 @@
     align-items: center;
     gap: 20px;
     user-select: none;
-    -webkit-user-select: none;
     font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   }
 
-  .pd-disc-container {
-    display: flex;
-    justify-content: center;
-  }
+  .pd-disc-container { display: flex; justify-content: center; }
 
   .pd-vynil-disc {
-    width: 58px;
-    height: 58px;
-    display: grid;
-    place-items: center;
-    background: transparent;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
+    width: 58px; height: 58px;
+    display: grid; place-items: center;
+    background: transparent; border: 0; padding: 0; cursor: pointer;
   }
 
   .pd-vynil-disc img {
-    width: 50px;
-    height: 50px;
+    width: 50px; height: 50px;
     display: block;
     transform-origin: 50% 50%;
   }
@@ -78,14 +68,11 @@
     animation: pdSpin 1.3s linear infinite;
   }
 
-  @keyframes pdSpin {
-    to { transform: rotate(360deg); }
-  }
+  @keyframes pdSpin { to { transform: rotate(360deg); } }
 
-  /* Tracks en grid - 4 por fila */
   .pd-vynil-tracks {
     display: grid;
-    grid-template-columns: repeat(1, auto);   /* 4 columnas */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 10px 16px;
     justify-content: center;
     width: 100%;
@@ -94,41 +81,98 @@
   }
 
   .pd-line-break {
-    grid-column: 1 / -1;   /* Fuerza el salto de línea */
-    height: 0;
-    margin: 0;
-    padding: 0;
+    grid-column: 1 / -1;
+    height: 0; margin: 0; padding: 0;
   }
 
   .pd-track {
-    border: 0;
-    background: transparent;
-    padding: 0;
-    margin: 0;
-    font-size: 10.5px;
-    line-height: 1.1;
-    color: #ffffff;
-    cursor: pointer;
-    text-align: center;
-    white-space: nowrap;
+    border: 0; background: transparent; padding: 0; margin: 0;
+    font-size: 10.5px; line-height: 1.1; color: #ffffff;
+    cursor: pointer; text-align: center; white-space: nowrap;
   }
 
-  .pd-track:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
+  .pd-track:hover { text-decoration: underline; text-underline-offset: 4px; }
   .pd-track.is-active {
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 4px;
   }
-
-  .pd-sep {
-    width: 1px;
-    height: 14px;
-    background: rgba(255,255,255,0.40);
-    align-self: center;
-    justify-self: center;
-  }
 </style>
+
+<script>
+  (function() {
+    const root = document.querySelector('.pd-vynil-player');
+    if (!root) return;
+
+    const audio = root.querySelector('.pd-audio');
+    const discBtn = root.querySelector('.pd-vynil-disc');
+    const trackBtns = Array.from(root.querySelectorAll('.pd-track'));
+
+    let currentIndex = -1;
+
+    // Reproducir pista por índice
+    function playTrack(index) {
+      if (index < 0 || index >= trackBtns.length) return;
+      
+      currentIndex = index;
+      const src = trackBtns[index].dataset.src;
+
+      if (audio.src !== src) {
+        audio.src = src;
+        audio.load();
+      }
+
+      audio.play().then(() => {
+        root.classList.add('is-playing');
+        setActiveTrack(trackBtns[index]);
+      }).catch(e => console.log("Error reproduciendo:", e));
+    }
+
+    function setActiveTrack(btn) {
+      trackBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+    }
+
+    // Toggle Play/Pause con el disco
+    function togglePlay() {
+      if (audio.paused) {
+        if (currentIndex === -1) {
+          playTrack(0); // empezar desde la primera
+        } else {
+          audio.play();
+        }
+      } else {
+        audio.pause();
+        root.classList.remove('is-playing');
+      }
+    }
+
+    // AUTO NEXT - Cuando termina una canción pasa a la siguiente
+    audio.addEventListener('ended', () => {
+      console.log('→ Canción terminada, pasando a siguiente');
+      let nextIndex = (currentIndex + 1) % trackBtns.length;
+      playTrack(nextIndex);
+    });
+
+    // Mantener UI actualizada
+    audio.addEventListener('play', () => root.classList.add('is-playing'));
+    audio.addEventListener('pause', () => root.classList.remove('is-playing'));
+
+    // Click en cada track
+    trackBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => playTrack(index));
+    });
+
+    // Click en el disco
+    discBtn.addEventListener('click', togglePlay);
+
+    // Truco para iOS (desbloquear audio con primer toque)
+    let unlocked = false;
+    document.addEventListener('touchstart', function unlock() {
+      if (!unlocked && audio.paused) {
+        audio.play().catch(() => {});
+        unlocked = true;
+      }
+    }, { once: true });
+
+  })();
+</script>
